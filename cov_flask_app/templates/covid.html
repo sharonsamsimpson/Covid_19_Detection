@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/covid.css') }}">  
+    <title> Prediction </title>  
+</head>
+
+<body>
+    <h1><b> Stay Safe !!! </b></h1>
+    
+    <div class="login">
+        
+        <h5><b>Covid presence prediction</b></h5>
+        
+        <form action="{{ url_for('covid')}}" method="POST" class="scroll">
+            
+            <legend>Do you have COUGH?</legend>
+            <input type="number" name="cough" placeholder="enter 0 if no or 1 in yes" required="required"/>
+       
+            <legend>Do you have FEVER?</legend>
+            <input type="number" name="fever" placeholder="enter 0 if no or 1 in yes" required="required"/>
+        
+            <legend>Do you have SORE THROAT?</legend>
+            <input type="number" name="sore_throat" placeholder="enter 0 if no or 1 in yes" required="required"/>
+
+            <legend>Suffering from SHORTNESS OF BREATH?</legend>
+            <input type="number" name="shortness_of_breath" placeholder="enter 0 if no or 1 in yes" required="required"/>
+        
+            <legend>Do you have HEAD ACHE?</legend>
+            <input type="number" name="head_ache" placeholder="enter 0 if no or 1 in yes" required="required"/>
+           
+            <legend>Are you AGE 60 AND ABOVE?</legend>
+            <input type="number" name="age_60_and_above" placeholder="enter 0 if no or 1 in yes" required="required"/>
+      
+            <legend>Enter your GENDER:</legend>
+            <input type="number" name="gender" placeholder="enter 0 if male or 1 in female" required="required"/>
+  
+            <legend>Contact with Confirmed?</legend>
+            <input type="number" name="Contact_with_Confirmed" placeholder="enter 0 if no or 1 in yes" required="required"/>
+            <br>
+            
+            <button type="submit" class="btn btn-primary btn-block btn-large"> Predict </button>
+        </form>
+        <br>
+        
+        {{ prediction_text }}
+        <br>
+        
+        <form action="{{ url_for('back')}}" method="POST">
+            <button  type="submit" class="btn btn-primary">Back</button>
+        </form>
+        <br>
+        
+    </div>
+</body>
+</html>
